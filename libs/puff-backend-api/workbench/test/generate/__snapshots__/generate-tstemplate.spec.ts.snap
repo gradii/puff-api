@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generate tstemplate test generate ast 1`] = `
+"export class StepStatus {
+    static StartStatus = \\"Running Step: StartStatus\\";
+    static SuccessStatus = \\"Running Step: SuccessStatus\\";
+    static FailureStatus = \\"Running Step: FailStatus\\";
+    static FinishedStatus = \\"Finished Step\\";
+}
+"
+`;

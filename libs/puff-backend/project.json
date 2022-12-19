@@ -1,0 +1,71 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/puff-backend/src",
+  "projectType": "library",
+  "targets": {
+    "ng-packagr-build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/puff-backend"],
+      "options": {
+        "project": "libs/puff-backend/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/puff-backend/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/puff-backend/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/puff-backend",
+        "tsConfig": "libs/puff-backend/tsconfig.lib.json",
+        "packageJson": "libs/puff-backend/package.json",
+        "main": "libs/puff-backend/src/index.ts",
+        "assets": ["libs/puff-backend/*.md"]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs puff-backend {args.ver} {args.tag}"
+      },
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "build"
+        }
+      ]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/puff-backend/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/puff-backend"],
+      "options": {
+        "jestConfig": "libs/puff-backend/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": [
+    "type:library",
+    "scope:backend",
+    "platform:node",
+    "scope:shared"
+  ],
+  "implicitDependencies": [
+    "!puff-backend-sdk",
+    "!puff-backend-api"
+  ]
+}

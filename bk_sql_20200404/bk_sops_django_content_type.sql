@@ -1,0 +1,108 @@
+create table django_content_type
+(
+    id        int auto_increment
+        primary key,
+    app_label varchar(100) not null,
+    model     varchar(100) not null,
+    constraint django_content_type_app_label_model_76bd3d3b_uniq
+        unique (app_label, model)
+);
+
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (1, 'account', 'user');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (9, 'account', 'userproperty');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (2, 'account', 'userproxy');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (10, 'account', 'verifyinfo');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (3, 'admin', 'logentry');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (24, 'appmaker', 'appmaker');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (5, 'auth', 'group');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (4, 'auth', 'permission');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (26, 'collection', 'collection');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (47, 'component_framework', 'componentmodel');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (6, 'contenttypes', 'contenttype');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (11, 'core', 'business');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (12, 'core', 'businessgroupmembership');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (14, 'core', 'environmentvariables');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (15, 'core', 'project');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (19, 'core', 'projectbasedcomponent');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (18, 'core', 'projectconfig');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (17, 'core', 'projectcounter');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (20, 'core', 'resourceconfig');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (21, 'core', 'staffgroupset');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (13, 'core', 'userbusiness');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (16, 'core', 'userdefaultproject');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (97, 'django_celery_beat', 'clockedschedule');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (92, 'django_celery_beat', 'crontabschedule');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (93, 'django_celery_beat', 'intervalschedule');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (94, 'django_celery_beat', 'periodictask');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (95, 'django_celery_beat', 'periodictasks');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (96, 'django_celery_beat', 'solarschedule');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (98, 'django_celery_results', 'taskresult');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (80, 'django_signal_valve', 'signal');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (49, 'engine', 'data');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (63, 'engine', 'datasnapshot');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (60, 'engine', 'functionswitch');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (50, 'engine', 'history');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (51, 'engine', 'historydata');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (64, 'engine', 'multicallbackdata');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (62, 'engine', 'nodecelerytask');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (52, 'engine', 'noderelationship');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (53, 'engine', 'pipelinemodel');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (54, 'engine', 'pipelineprocess');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (55, 'engine', 'processcelerytask');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (56, 'engine', 'processsnapshot');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (61, 'engine', 'schedulecelerytask');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (57, 'engine', 'scheduleservice');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (65, 'engine', 'sendfailedcelerytask');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (58, 'engine', 'status');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (59, 'engine', 'subprocessrelationship');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (34, 'external_plugins', 'cachepackagesource');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (35, 'external_plugins', 'filesystemoriginalsource');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (36, 'external_plugins', 'gitrepooriginalsource');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (37, 'external_plugins', 's3originalsource');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (38, 'external_plugins', 'synctask');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (90, 'files', 'uploadmodulefiletag');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (91, 'files', 'uploadticket');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (25, 'function', 'functiontask');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (30, 'label', 'label');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (31, 'label', 'templatelabelrelation');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (66, 'log', 'logentry');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (27, 'operate_record', 'taskoperaterecord');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (28, 'operate_record', 'templateoperaterecord');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (32, 'periodictask', 'periodictask');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (33, 'periodictask', 'periodictaskhistory');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (71, 'periodic_task', 'crontabschedule');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (72, 'periodic_task', 'djceleryperiodictask');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (73, 'periodic_task', 'djceleryperiodictasks');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (74, 'periodic_task', 'intervalschedule');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (75, 'periodic_task', 'periodictask');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (76, 'periodic_task', 'periodictaskhistory');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (39, 'pipeline', 'pipelineinstance');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (40, 'pipeline', 'pipelinetemplate');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (41, 'pipeline', 'snapshot');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (46, 'pipeline', 'templatecurrentversion');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (45, 'pipeline', 'templaterelationship');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (42, 'pipeline', 'templatescheme');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (44, 'pipeline', 'templateversion');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (43, 'pipeline', 'treeinfo');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (77, 'pipeline_external_plugins', 'filesystemsource');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (78, 'pipeline_external_plugins', 'gitreposource');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (79, 'pipeline_external_plugins', 's3source');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (81, 'pipeline_web_core', 'nodeininstance');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (82, 'pipeline_web_core', 'nodeintemplate');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (83, 'pipeline_web_label', 'label');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (84, 'pipeline_web_label', 'labelgroup');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (85, 'pipeline_web_label', 'nodeininstanceattrlabel');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (86, 'pipeline_web_label', 'nodeintemplateattrlabel');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (87, 'plugin_management', 'deprecatedplugin');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (7, 'sessions', 'session');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (8, 'sites', 'site');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (67, 'statistics', 'componentexecutedata');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (68, 'statistics', 'componentintemplate');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (69, 'statistics', 'instanceinpipeline');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (70, 'statistics', 'templateinpipeline');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (23, 'taskflow3', 'taskflowinstance');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (22, 'tasktmpl3', 'tasktemplate');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (29, 'template', 'commontemplate');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (48, 'variable_framework', 'variablemodel');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (89, 'version_log', 'versionlogvisited');
+INSERT INTO bk_sops.django_content_type (id, app_label, model) VALUES (88, 'weixin_core', 'bkweixinuser');

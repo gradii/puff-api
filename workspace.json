@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "projects": {
+    "forms-container": "libs/forms-container",
+    "puff-backend": "libs/puff-backend",
+    "puff-backend-api": "libs/puff-backend-api",
+    "puff-backend-sdk": "libs/puff-backend-sdk",
+    "triangle-api": "apps/triangle-api"
+  }
+}

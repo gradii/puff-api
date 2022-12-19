@@ -1,0 +1,74 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/puff-backend-api/src",
+  "projectType": "library",
+  "targets": {
+    "ng-packagr-build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/puff-backend-api"],
+      "options": {
+        "project": "libs/puff-backend-api/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/puff-backend-api/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/puff-backend-api/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production",
+      "dependsOn": [
+        {
+          "target": "ng-packagr-build",
+          "projects": "dependencies"
+        }
+      ]
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/puff-backend-api",
+        "tsConfig": "libs/puff-backend-api/tsconfig.lib.json",
+        "packageJson": "libs/puff-backend-api/package.json",
+        "main": "libs/puff-backend-api/src/index.ts",
+        "assets": ["libs/puff-backend-api/*.md"]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs puff-backend-api {args.ver} {args.tag}"
+      },
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "build"
+        }
+      ]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/puff-backend-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/puff-backend-api"],
+      "options": {
+        "jestConfig": "libs/puff-backend-api/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": [
+
+  ],
+  "implicitDependencies": [
+    "puff-backend",
+    "puff-backend-sdk"
+  ]
+}

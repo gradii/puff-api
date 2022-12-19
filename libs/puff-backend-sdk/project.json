@@ -1,0 +1,76 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/puff-backend-sdk/src",
+  "projectType": "library",
+  "targets": {
+    "ng-packagr-build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/puff-backend-sdk"],
+      "options": {
+        "project": "libs/puff-backend-sdk/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/puff-backend-sdk/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/puff-backend-sdk/tsconfig.lib.json"
+        }
+      },
+      "dependsOn": [
+        {
+          "target": "ng-packagr-build",
+          "projects": "dependencies"
+        }
+      ],
+      "defaultConfiguration": "production"
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/puff-backend-sdk",
+        "tsConfig": "libs/puff-backend-sdk/tsconfig.lib.json",
+        "packageJson": "libs/puff-backend-sdk/package.json",
+        "main": "libs/puff-backend-sdk/src/index.ts",
+        "assets": ["libs/puff-backend-sdk/*.md"]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs puff-backend-sdk {args.ver} {args.tag}"
+      },
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "build"
+        }
+      ]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/puff-backend-sdk/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/puff-backend-sdk"],
+      "options": {
+        "jestConfig": "libs/puff-backend-sdk/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": [
+    "type:library",
+    "scope:backend",
+    "platform:node",
+    "scope:shared"
+  ],
+  "implicitDependencies": [
+    "puff-backend"
+  ]
+}

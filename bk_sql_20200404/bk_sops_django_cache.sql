@@ -1,0 +1,12 @@
+create table django_cache
+(
+    cache_key varchar(255) not null
+        primary key,
+    value     longtext     not null,
+    expires   datetime(6)  not null
+);
+
+create index django_cache_expires
+    on django_cache (expires);
+
+INSERT INTO bk_sops.django_cache (cache_key, value, expires) VALUES (':1:gcloud_core_utils_sites_open_utils_get_user_info_admin', 'gASVdQIAAAAAAAB9lCiMBnN0YXR1c5SMBk5PUk1BTJSMBmRvbWFpbpSMDWRlZmF1bHQubG9jYWyUjARjb2RllE6MCXRlbGVwaG9uZZSMAJSMC2NyZWF0ZV90aW1llIwbMjAyMi0wNC0wNFQxODoyNDoxMS44NjI0NTNalIwMY291bnRyeV9jb2RllIwCODaUjAhpc29fY29kZZSMAkNOlIwEbG9nb5ROjAJpZJRLAYwMZGlzcGxheV9uYW1llGgHjARyb2xllEsBjAR0eXBllGgHjAZsZWFkZXKUXZSMCHVzZXJuYW1llIwFYWRtaW6UjAt1cGRhdGVfdGltZZSMGzIwMjItMDQtMDRUMTg6MjQ6MTEuODYyNDkzWpSMCXd4X3VzZXJpZJRoB4wMc3RhZmZfc3RhdHVzlIwCSU6UjBNwYXNzd29yZF92YWxpZF9kYXlzlEr/////jAJxcZRoB4wIbGFuZ3VhZ2WUjAV6aC1jbpSMFHBhc3N3b3JkX3VwZGF0ZV90aW1llE6MB2VuYWJsZWSUiIwJdGltZV96b25llIwNQXNpYS9TaGFuZ2hhaZSMC2RlcGFydG1lbnRzlF2UfZQojAVvcmRlcpRLAWgPSwGMCWZ1bGxfbmFtZZSMCeaAu+WFrOWPuJSMBG5hbWWUjAnmgLvlhazlj7iUdWGMBWVtYWlslGgHjAZleHRyYXOUfZSMCXd4X29wZW5pZJRoB4wIcG9zaXRpb26USwCMC2NhdGVnb3J5X2lklEsBjBNia19zdXBwbGllcl9hY2NvdW50lEsAjAdia19yb2xllEsBjAtia191c2VybmFtZZRoFowFcGhvbmWUaAd1Lg==', '2022-04-04 12:26:05');

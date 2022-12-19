@@ -1,0 +1,41 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": false,
+    "strictNullChecks": false,
+    "noImplicitReturns": true,
+    "strictFunctionTypes": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "skipLibCheck": true,
+    "strictBindCallApply": true,
+    "target": "es2015",
+    "lib": [
+      "es5",
+      "es2015",
+      "dom",
+      "dom.iterable",
+      "ES2019.Object",
+      "ES2016.Array.Include"
+    ],
+    "types": ["jest"],
+    "baseUrl": ".",
+    "paths": {
+      "@gradii/forms-container/*": ["libs/forms-container/*/index.ts"],
+      "@gradii/puff-backend/*": ["libs/puff-backend/*/index.ts"],
+      "@gradii/puff-backend-api/*": ["libs/puff-backend-api/*/index.ts"],
+      "@gradii/puff-backend-sdk/*": ["libs/puff-backend-sdk/*/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

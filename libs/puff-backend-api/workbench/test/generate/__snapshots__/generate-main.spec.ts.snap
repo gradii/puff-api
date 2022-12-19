@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`backend bootstrap test generate main.ts 1`] = `
+"import { Logger } from \\"@nestjs/common\\";
+import { NestFactory } from \\"@nestjs/core\\";
+import { AppModule } from \\"./app/app.module\\";
+async function bootstrap() {
+    const app = await NestFactory.create(AppModule);
+    const globalPrefix = \\"api\\";
+    app.setGlobalPrefix(globalPrefix);
+    const port = process.env.PORT || 3333;
+    await app.listen(port, () => {
+        Logger.log(\\"Listening at http://localhost:\\" + port + \\"/\\" + globalPrefix);
+    });
+    return app;
+}
+bootstrap();
+"
+`;
+
+exports[`backend bootstrap test generate main.ts 2`] = `
+"import { Logger } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app/app.module';
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  const globalPrefix = 'api';
+  app.setGlobalPrefix(globalPrefix);
+  const port = process.env.PORT || 3333;
+  await app.listen(port, () => {
+    Logger.log('Listening at http://localhost:' + port + '/' + globalPrefix);
+  });
+  return app;
+}
+bootstrap();
+"
+`;
+
+exports[`backend bootstrap test generate main.ts with hasHttp false 1`] = `
+"import { Logger } from \\"@nestjs/common\\";
+import { NestFactory } from \\"@nestjs/core\\";
+import { AppModule } from \\"./app/app.module\\";
+async function bootstrap() {
+    const app = await NestFactory.createApplicationContext(AppModule);
+    Logger.log(\\"Server running without http server\\");
+    return app;
+}
+bootstrap();
+"
+`;
+
+exports[`backend bootstrap test generate main.ts with hasHttp false 2`] = `
+"import { Logger } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app/app.module';
+async function bootstrap() {
+  const app = await NestFactory.createApplicationContext(AppModule);
+  Logger.log('Server running without http server');
+  return app;
+}
+bootstrap();
+"
+`;
+
+exports[`backend bootstrap test generate main.ts with swagger: hasHttp = true; hasSwagger = true; 1`] = `
+"import { Logger } from \\"@nestjs/common\\";
+import { NestFactory } from \\"@nestjs/core\\";
+import { AppModule } from \\"./app/app.module\\";
+import { DocumentBuilder, SwaggerModule } from \\"@nestjs/swagger\\";
+async function bootstrap() {
+    const app = await NestFactory.create(AppModule);
+    const globalPrefix = \\"api\\";
+    app.setGlobalPrefix(globalPrefix);
+    //region swagger api
+    const apiPath = \\"/swagger-api\\";
+    const options = new DocumentBuilder().setTitle(\\"api\\").setDescription(\\"API description \\").setVersion(\\"1.0\\").addBearerAuth().build();
+    const document = SwaggerModule.createDocument(app, options);
+    SwaggerModule.setup(apiPath, app, document);
+    //endregion
+    const port = process.env.PORT || 3333;
+    await app.listen(port, () => {
+        Logger.log(\\"Listening at http://localhost:\\" + port + \\"/\\" + globalPrefix);
+    });
+    return app;
+}
+bootstrap();
+"
+`;
+
+exports[`backend bootstrap test generate main.ts with swagger: hasHttp = true; hasSwagger = true; prettier! 1`] = `
+"import { Logger } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app/app.module';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  const globalPrefix = 'api';
+  app.setGlobalPrefix(globalPrefix);
+  //region swagger api
+  const apiPath = '/swagger-api';
+  const options = new DocumentBuilder()
+    .setTitle('api')
+    .setDescription('API description ')
+    .setVersion('1.0')
+    .addBearerAuth()
+    .build();
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup(apiPath, app, document);
+  //endregion
+  const port = process.env.PORT || 3333;
+  await app.listen(port, () => {
+    Logger.log('Listening at http://localhost:' + port + '/' + globalPrefix);
+  });
+  return app;
+}
+bootstrap();
+"
+`;
+
+exports[`backend bootstrap test generate main.ts with swagger: hasHttp false; hasSwagger = true; 1`] = `
+"import { Logger } from \\"@nestjs/common\\";
+import { NestFactory } from \\"@nestjs/core\\";
+import { AppModule } from \\"./app/app.module\\";
+async function bootstrap() {
+    const app = await NestFactory.createApplicationContext(AppModule);
+    Logger.log(\\"Server running without http server\\");
+    return app;
+}
+bootstrap();
+"
+`;

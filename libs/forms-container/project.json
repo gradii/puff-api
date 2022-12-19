@@ -1,0 +1,62 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/forms-container/src",
+  "projectType": "library",
+  "targets": {
+    "ng-packagr-build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/forms-container"],
+      "options": {
+        "project": "libs/forms-container/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/forms-container/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/forms-container/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/forms-container",
+        "tsConfig": "libs/forms-container/tsconfig.lib.json",
+        "packageJson": "libs/forms-container/package.json",
+        "main": "libs/forms-container/src/index.ts",
+        "assets": ["libs/forms-container/*.md"]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs forms-container {args.ver} {args.tag}"
+      },
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "build"
+        }
+      ]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/forms-container/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/forms-container"],
+      "options": {
+        "jestConfig": "libs/forms-container/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

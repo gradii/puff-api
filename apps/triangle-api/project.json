@@ -1,0 +1,130 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/triangle-api/src",
+  "projectType": "application",
+  "targets": {
+    "swc-build": {
+      "executor": "@nrwl/js:swc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/triangle-api",
+        "main": "apps/triangle-api/src/main.ts",
+        "tsConfig": "apps/triangle-api/tsconfig.swc.json",
+        "assets": [
+          "apps/triangle-api/src/assets"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/triangle-api/src/environments/environment.ts",
+              "with": "apps/triangle-api/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        {
+          "target": "ng-packagr-build",
+          "projects": "dependencies"
+        }
+      ]
+    },
+    "swc-serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "triangle-api:swc-build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "triangle-api:swc-build:production"
+        }
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/triangle-api",
+        "main": "apps/triangle-api/src/main.ts",
+        "tsConfig": "apps/triangle-api/tsconfig.app.json",
+        "assets": [
+          "apps/triangle-api/src/assets",
+          "apps/triangle-api/src/.env.sample"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/triangle-api/src/environments/environment.ts",
+              "with": "apps/triangle-api/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        {
+          "target": "ng-packagr-build",
+          "projects": "dependencies"
+        }
+      ]
+    },
+    "tsc-serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "triangle-api:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "triangle-api:build:production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "triangle-api:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "triangle-api:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/triangle-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/triangle-api"],
+      "options": {
+        "jestConfig": "apps/triangle-api/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": [
+    "type:api",
+    "scope:triangle-api",
+    "platform:node"
+  ],
+  "implicitDependencies": [
+    "puff-backend",
+    "puff-backend-api",
+    "puff-backend-sdk"
+  ]
+}

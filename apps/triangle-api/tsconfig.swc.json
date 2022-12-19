@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "paths": {
+      "@gradii/forms-container/*": ["dist/libs/forms-container/*"],
+      "@gradii/puff-backend/*": ["dist/libs/puff-backend/*"],
+      "@gradii/puff-backend-api/*": ["dist/libs/puff-backend-api/*"],
+      "@gradii/puff-backend-sdk/*": ["dist/libs/puff-backend-sdk/*"]
+    }
+  }
+}
