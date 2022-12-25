@@ -66,7 +66,7 @@ export class ProjectThemeController {
     const globalThemePath = path.join(environment.multerConfig.workbenchDest, 'themes');
     if (
       !fs.existsSync(globalThemePath) ||
-      !fse.pathExistsSync(path.join(globalThemePath, '.git'))
+      !fs.existsSync(path.join(globalThemePath, '.git'))
     ) {
       await git.clone({
         fs    : fs,

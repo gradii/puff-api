@@ -42,7 +42,6 @@ export class AppModule implements OnModuleInit {
       'port'    : +process.env.DB_PORT,
       'username': process.env.DB_USER_NAME,
       'password': process.env.DB_PASSWORD,
-      timezone: 'Z',
       ssl: {minVersion: 'TLSv1.2', rejectUnauthorized: true}
     });
 
