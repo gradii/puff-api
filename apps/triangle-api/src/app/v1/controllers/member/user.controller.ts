@@ -9,7 +9,7 @@ import {
 import { Body, Controller, Delete, HttpException, Post, Put, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiBearerAuth, ApiBody, ApiTags } from '@nestjs/swagger';
-import { Request } from 'express';
+import type { Request } from 'express';
 
 @ApiTags('auth')
 @Controller('auth')

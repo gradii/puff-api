@@ -12,7 +12,7 @@ import {
   ApiBearerAuth, ApiBody, ApiConsumes, ApiOperation, ApiQuery, ApiTags
 } from '@nestjs/swagger';
 import * as crypto from 'crypto';
-import { Response } from 'express';
+import type { Response } from 'express';
 import * as fs from 'fs';
 import * as path from 'path';
 import { multerOptions } from '../../../config/multer.config';
@@ -132,7 +132,7 @@ export class ExcelController {
 
     if (!excelFile) {
       throw err
-      `文件上传失败`;
+        `文件上传失败`;
     }
 
 

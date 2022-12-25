@@ -10,6 +10,7 @@
     "yarn": ">= 1.0.0"
   },
   "scripts": {
+    "serve": "nx serve",
     "ng": "nx",
     "nx": "nx",
     "postinstall": "find dist/libs -type d -depth 1|while read FILE;do  ln -sf ../../$FILE \"node_modules/@gradii/$(basename $FILE)\";done"
@@ -42,7 +43,7 @@
     "isomorphic-git": "^1.10.1",
     "js-yaml": "^4.1.0",
     "jsdom": "^19.0.0",
-    "mysql2": "^2.3.0",
+    "mysql2": "^2.3.3",
     "nanoid": "^3.1.22",
     "nest-commander": "^2.3.4",
     "passport": "^0.5.0",

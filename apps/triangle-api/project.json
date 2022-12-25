@@ -123,6 +123,7 @@
     "platform:node"
   ],
   "implicitDependencies": [
+    "forms-container",
     "puff-backend",
     "puff-backend-api",
     "puff-backend-sdk"

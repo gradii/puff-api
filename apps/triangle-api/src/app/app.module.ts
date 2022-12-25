@@ -38,28 +38,32 @@ export class AppModule implements OnModuleInit {
     db.addConnection({
       'driver'  : 'mysql',
       'database': 'triangle',
-      'host'    : process.env.DB_HOST || 'aliyun-sh.gradii.com',
-      'port'    : +process.env.DB_PORT || 8979,
-      'username': process.env.DB_USER_NAME || 'dev',
-      'password': process.env.DB_PASSWORD || 'dev'
+      'host'    : process.env.DB_HOST,
+      'port'    : +process.env.DB_PORT,
+      'username': process.env.DB_USER_NAME,
+      'password': process.env.DB_PASSWORD,
+      timezone: 'Z',
+      ssl: {minVersion: 'TLSv1.2', rejectUnauthorized: true}
     });
 
     db.addConnection({
       'driver'  : 'mysql',
       'database': 'devops',
-      'host'    : process.env.DB_HOST || 'aliyun-sh.gradii.com',
-      'port'    : +process.env.DB_PORT || 8979,
-      'username': process.env.DB_USER_NAME || 'dev',
-      'password': process.env.DB_PASSWORD || 'dev'
+      'host'    : process.env.DB_HOST,
+      'port'    : +process.env.DB_PORT,
+      'username': process.env.DB_USER_NAME,
+      'password': process.env.DB_PASSWORD,
+      ssl: {minVersion: 'TLSv1.2', rejectUnauthorized: true}
     }, 'devops');
 
     db.addConnection({
       'driver'  : 'mysql',
       'database': 'ucenter',
-      'host'    : process.env.DB_HOST || 'aliyun-sh.gradii.com',
-      'port'    : +process.env.DB_PORT || 8979,
-      'username': process.env.DB_USER_NAME || 'dev',
-      'password': process.env.DB_PASSWORD || 'dev'
+      'host'    : process.env.DB_HOST,
+      'port'    : +process.env.DB_PORT,
+      'username': process.env.DB_USER_NAME,
+      'password': process.env.DB_PASSWORD,
+      ssl: {minVersion: 'TLSv1.2', rejectUnauthorized: true}
     }, 'ucenter');
 
     db.bootFedaco();
